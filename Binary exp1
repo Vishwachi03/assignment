@@ -1,0 +1,36 @@
+
+#include <stdio.h>
+
+int binarySearch(int arr[] , int key , int start , int end) {
+    
+    if(start>end) {
+        return -1 ;
+    }
+    
+    int mid = start + (end-start)/2 ; 
+    
+    if(arr[mid] == key) {
+        return mid ; 
+    }
+    
+    else if(arr[mid] > key) {
+        int x = binarySearch(arr , key , start , mid-1) ;
+        return x ; 
+    }
+    
+    else {
+        int x = binarySearch(arr, key ,mid+1 , end);
+        return x ; 
+    }
+}
+
+
+int main()
+{
+    int arrar[5] = {1 , 2, 3 , 4, 5} ;
+    
+    int index = binarySearch(arrar,5,0,4);
+    printf("Key value at index %d",index);
+
+    return 0;
+}
